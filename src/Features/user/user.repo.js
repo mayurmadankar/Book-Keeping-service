@@ -1,13 +1,15 @@
 import ApplicationError from "../middleware/applicationError.js";
 import { UserModel } from "./user.schema.js";
+import mongoose from "mongoose";
 
-export const signUp = async (name, emailId, password, gender, avatar) => {
+export const registerUser = async (name, email, password, gender, role) => {
   try {
     const newUser = UserModel({
       name,
-      emailId,
+      email,
       password,
-      gender
+      gender,
+      role
     });
     const result = await newUser.save();
     return result;
@@ -20,11 +22,20 @@ export const signUp = async (name, emailId, password, gender, avatar) => {
   }
 };
 
-export const findByEmail = async (emailId) => {
+export const findByEmail = async (email) => {
   try {
-    return await UserModel.findOne({ emailId });
+    return await UserModel.findOne({ email });
   } catch (err) {
     console.log(err);
     throw new ApplicationError("Error while checking email in database", 500);
+  }
+};
+
+export const loginUser = async (email, password) => {
+  try {
+    return await UserModel.findOne({ email, password });
+  } catch (err) {
+    console.log(err);
+    throw new ApplicationError("Error while signIn", 500);
   }
 };

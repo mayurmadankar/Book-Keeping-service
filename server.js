@@ -5,6 +5,7 @@ dotenv.config();
 import bodyParser from "body-parser";
 import { connectDB } from "./src/config/db.js";
 import userRouter from "./src/Features/user/user.route.js";
+import { errorHandlerMiddleware } from "./src/Features/middleware/applicationError.js";
 
 const server = express();
 const PORT = process.env.PORT;
@@ -12,12 +13,13 @@ const PORT = process.env.PORT;
 server.use(bodyParser.json());
 server.use(express.json());
 server.use(bodyParser.urlencoded({ extended: true }));
+server.use(errorHandlerMiddleware);
 
 server.get("/", (req, res) => {
   res.send("Welcome to the Book Keeping service");
 });
 
-server.use("/api/user", userRouter);
+server.use("/api/users", userRouter);
 
 server.listen(PORT, () => {
   console.log(`Server is listening at PORT : ${PORT}`);
