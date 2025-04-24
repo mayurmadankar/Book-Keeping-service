@@ -129,7 +129,7 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 
 #### Return Books
 
-`PUT /api/borrow/returnBook`
+`PUT /api/borrow/returnBook/:bookId`
 
 ### Inventory API
 

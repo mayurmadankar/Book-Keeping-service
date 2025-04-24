@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const baseUrl = process.env.MONGODB_URL;
+// const baseUrl = "mongodb://localhost:27017/";
 // console.log(baseUrl);
 
 export const connectDB = async () => {

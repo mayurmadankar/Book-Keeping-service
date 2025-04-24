@@ -15,7 +15,7 @@ borrowBookRouter.post(
   borrowBookController
 );
 borrowBookRouter.put(
-  "/returnBook",
+  "/returnBook/:bookId",
   upload.none(),
   isAuthenticated,
   returnBookController

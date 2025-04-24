@@ -67,16 +67,10 @@ export const borrowBookController = async (req, res, next) => {
 };
 export const returnBookController = async (req, res, next) => {
   try {
-    const { bookId } = req.body;
+    const { bookId } = req.params;
     const userId = req.user._id;
-    // console.log(userId)
-    // console.log("Returning Book ID:", bookId);
-
-    if (!mongoose.Types.ObjectId.isValid(bookId)) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Invalid book ID." });
-    }
+    console.log(bookId);
+    // console.log(userId);
 
     const updatedBorrow = await BorrowModel.findOneAndUpdate(
       {
