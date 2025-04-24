@@ -14,6 +14,10 @@ const bookSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
+    charge: {
+      type: Number,
+      min: 0
+    },
     library: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Library",

@@ -9,7 +9,7 @@ import mongoose from "mongoose";
 
 export const createBookController = async (req, res, next) => {
   try {
-    const { title, library, author, borrower } = req.body;
+    const { title, library, author, borrower, charge } = req.body;
 
     if (!title?.trim() || !library?.trim() || !author?.trim()) {
       return res.status(400).json({
@@ -17,13 +17,19 @@ export const createBookController = async (req, res, next) => {
         message: "Title, library, and author are required."
       });
     }
+    if (charge && isNaN(Number(charge))) {
+      return res.status(400).json({
+        success: false,
+        message: "Charge must be a number."
+      });
+    }
     let imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
 
     const result = await createBook({
       ...req.body,
+      charge: charge ? Number(charge) : 0,
       image: imageUrl
     });
-
     res.status(201).json({
       success: true,
       message: "Book created successfully",
@@ -58,7 +64,7 @@ export const getBookByIdController = async (req, res, next) => {
 
 export const updateBookController = async (req, res, next) => {
   try {
-    const { title, author, borrower, library } = req.body;
+    const { title, author, borrower, library, charge } = req.body;
     const bookId = req.params.id;
 
     if (title && typeof title !== "string") {
@@ -67,16 +73,25 @@ export const updateBookController = async (req, res, next) => {
         message: "Title must be a string."
       });
     }
+
     if (library && !mongoose.Types.ObjectId.isValid(library)) {
       return res.status(400).json({
         success: false,
         message: "Invalid library ID format."
       });
     }
+
     if (!author) {
       return res.status(400).json({
         success: false,
-        message: "author is required."
+        message: "Author is required."
+      });
+    }
+
+    if (charge && isNaN(Number(charge))) {
+      return res.status(400).json({
+        success: false,
+        message: "Charge must be a number."
       });
     }
     let imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
@@ -89,6 +104,7 @@ export const updateBookController = async (req, res, next) => {
     }
     const updateData = {
       ...req.body,
+      charge: charge ? Number(charge) : 0,
       image: imageUrl
     };
     const result = await updateBook(bookId, updateData);
@@ -99,10 +115,9 @@ export const updateBookController = async (req, res, next) => {
         message: "Book not found."
       });
     }
-
     res.status(200).json({
       success: true,
-      message: "Book updated succesfully",
+      message: "Book updated successfully",
       data: result
     });
   } catch (err) {
