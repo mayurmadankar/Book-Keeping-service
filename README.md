@@ -18,6 +18,8 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 - **RESTful APIs**  
   Clean, structured RESTful API design with proper error handling and consistent response formats.
 
+---
+
 ## 📦 Tech Stack
 
 - **Node.js**: Backend JavaScript runtime for building the application.
@@ -31,9 +33,13 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 - **Validator.js**: For input validation and sanitization to ensure security.
 - **ES6 Modules**: For maintaining a modular and organized code structure.
 
+---
+
 ## Fork the Collection
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/36661483-babb869d-ace9-4fa7-a5bd-1f141fb53414?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D36661483-babb869d-ace9-4fa7-a5bd-1f141fb53414%26entityType%3Dcollection%26workspaceId%3D2266b7a1-5a3e-4d92-9c01-fd221829432f)
+
+---
 
 ## ⚙️Setup for Backend
 
@@ -56,6 +62,8 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 ```bash
  npm start
 ```
+
+---
 
 ## 📡 API Reference
 
@@ -137,6 +145,8 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 
 `DELETE /api/inventory/deleteInventory/:id/inventory/:BookId`
 
+---
+
 ## Deployment
 
 Project Deployed on Render.com
@@ -145,9 +155,13 @@ Project Deployed on Render.com
    https://book-keeping-service-z8wq.onrender.com
 ```
 
+---
+
 ## Authors
 
 - [Mayur Madankar](https://github.com/mayurmadankar)
+
+---
 
 ## Contact me
 
