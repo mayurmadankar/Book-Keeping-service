@@ -9,6 +9,7 @@ import { errorHandlerMiddleware } from "./src/Features/middleware/applicationErr
 import librariesRouter from "./src/Features/library/libraries.route.js";
 import BooksRouter from "./src/Features/Books/books.route.js";
 import borrowBookRouter from "./src/Features/borrowBook/borrow.routes.js";
+import inventoryRouter from "./src/Features/inventory/inventory.routes.js";
 
 const server = express();
 const PORT = process.env.PORT;
@@ -26,6 +27,7 @@ server.use("/api/users", userRouter);
 server.use("/api/library", librariesRouter);
 server.use("/api/books", BooksRouter);
 server.use("/api/borrow", borrowBookRouter);
+server.use("/api/inventory", inventoryRouter);
 
 server.listen(PORT, () => {
   console.log(`Server is listening at PORT : ${PORT}`);
