@@ -28,7 +28,6 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 - **Mongoose**: ODM (Object Data Modeling) library to interact with MongoDB.
 - **JSON Web Tokens (JWT)**: For secure user authentication and authorization.
 - **Multer**: Middleware for handling file uploads (e.g., user avatars, post images).
-- **Nodemailer**: For sending OTP-based password reset emails.
 - **bcrypt.js**: For hashing and securing user passwords.
 - **Validator.js**: For input validation and sanitization to ensure security.
 - **ES6 Modules**: For maintaining a modular and organized code structure.
