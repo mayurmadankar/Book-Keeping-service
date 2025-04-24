@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const bookSchema = new mongoose.Schema(
   {
@@ -7,8 +8,7 @@ const bookSchema = new mongoose.Schema(
       required: true
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
       required: true
     },
     borrower: {
@@ -20,11 +20,9 @@ const bookSchema = new mongoose.Schema(
       ref: "Library",
       required: true
     },
-    publishedYear: {
-      type: Number
-    },
-    genre: {
-      type: String
+    image: {
+      type: String,
+      required: true
     }
   },
   { timestamps: true }

@@ -7,6 +7,7 @@ import { connectDB } from "./src/config/db.js";
 import userRouter from "./src/Features/user/user.route.js";
 import { errorHandlerMiddleware } from "./src/Features/middleware/applicationError.js";
 import librariesRouter from "./src/Features/library/libraries.route.js";
+import BooksRouter from "./src/Features/Books/books.route.js";
 
 const server = express();
 const PORT = process.env.PORT;
@@ -22,6 +23,7 @@ server.get("/", (req, res) => {
 
 server.use("/api/users", userRouter);
 server.use("/api/library", librariesRouter);
+server.use("/api/books", BooksRouter);
 
 server.listen(PORT, () => {
   console.log(`Server is listening at PORT : ${PORT}`);

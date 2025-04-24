@@ -5,7 +5,6 @@ export default class ApplicationError extends Error {
     this.statusCodecode = statusCode;
   }
 }
-
 export const errorHandlerMiddleware = (err, req, res, next) => {
   console.log(err);
   if (err instanceof ApplicationError) {

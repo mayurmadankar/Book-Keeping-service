@@ -1,5 +1,5 @@
 import { LibraryModel } from "./libraries.schema.js";
-// import { BookModel } from "../models/book.model.js";
+import { BookModel } from "../Books/books.schema.js";
 import ApplicationError from "../middleware/applicationError.js";
 import mongoose from "mongoose";
 
@@ -36,12 +36,12 @@ export const getLibraryById = async (id) => {
       throw new ApplicationError("Library not found", 404);
     }
 
-    // const books = await BookModel.find({ library: id })
-    //   .populate("borrower", "name email")
-    //   .populate("author", "name email");
+    const books = await BookModel.find({ library: id })
+      .populate("borrower", "name email")
+      .populate("author", "name email");
 
-    // return { library, books };
-    return library;
+    return { library, books };
+    // return library;
   } catch (err) {
     if (err instanceof mongoose.Error.CastError) {
       throw new ApplicationError("Invalid library ID format", 400);
