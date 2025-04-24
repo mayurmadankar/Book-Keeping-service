@@ -14,6 +14,11 @@ borrowBookRouter.post(
   isAuthenticated,
   borrowBookController
 );
-borrowBookRouter.put("/returnBook/:id", returnBookController);
+borrowBookRouter.put(
+  "/returnBook",
+  upload.none(),
+  isAuthenticated,
+  returnBookController
+);
 
 export default borrowBookRouter;

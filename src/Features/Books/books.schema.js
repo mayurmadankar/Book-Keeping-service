@@ -10,14 +10,28 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    borrower: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
-    charge: {
-      type: Number,
-      min: 0
-    },
+    borrowHistory: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true
+        },
+        charge: {
+          type: Number,
+          min: 0,
+          required: true
+        },
+        borrowedAt: {
+          type: Date,
+          default: Date.now
+        },
+        returned: {
+          type: Boolean,
+          default: false
+        }
+      }
+    ],
     library: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Library",
