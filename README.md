@@ -47,7 +47,7 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 
 ```bash
   PORT=5000
-  MONGODB_URI=your-mongodb-url
+  MONGODB_URL=your-mongodb-url
   JWT_SECRET=your-jwt-secret
 ```
 
@@ -142,7 +142,7 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 Project Deployed on Render.com
 
 ```bash
-  npm run deploy
+   https://book-keeping-service-z8wq.onrender.com
 ```
 
 ## Authors
