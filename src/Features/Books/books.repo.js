@@ -11,10 +11,7 @@ export const createBook = async (data) => {
 };
 export const getAllBooks = async () => {
   try {
-    return await BookModel.find()
-      .populate("library", "name address")
-      .populate("author", "name email")
-      .populate("borrower", "name email");
+    return await BookModel.find();
   } catch (err) {
     throw new ApplicationError("Failed to fetch books", 500);
   }
