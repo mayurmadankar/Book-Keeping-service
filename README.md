@@ -74,7 +74,7 @@ An inventory management backend for libraries built with **Node.js**, **Express.
 
 #### Login User
 
-`POST /api/user/login`
+`POST /api/users/login`
 
 ### Library API
 
